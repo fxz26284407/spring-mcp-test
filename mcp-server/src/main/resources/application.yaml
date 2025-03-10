@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: mcp-server
+  ai:
+    mcp:
+      server:
+        type: ASYNC
+
+#logging:
+#  level:
+#    reactor:
+#      netty: DEBUG
