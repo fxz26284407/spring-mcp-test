@@ -30,7 +30,7 @@ public class McpController {
     @GetMapping("/ai/mcp")
     public Flux<String> flux(@RequestParam(value = "message", defaultValue = "list for files") String message) {
 //        List<ToolCallback> toolCallbackProvider = McpToolUtils.getToolCallbacksFromSyncClients(mcpSyncClients);
-        List<ToolCallback> toolCallbackProvider = McpToolUtils.getToolCallbacksFromAsyncClinents(mcpAsyncClients);
+        List<ToolCallback> toolCallbackProvider = McpToolUtils.getToolCallbacksFromAsyncClients(mcpAsyncClients);
         return chatClient.prompt().user(message)
                 .tools(toolCallbackProvider)
                 .stream().content();
@@ -38,7 +38,7 @@ public class McpController {
 
     @GetMapping("/ai/mcp2")
     public String normal(@RequestParam(value = "message", defaultValue = "list for files") String message) {
-        List<ToolCallback> toolCallbackProvider = McpToolUtils.getToolCallbacksFromAsyncClinents(mcpAsyncClients);
+        List<ToolCallback> toolCallbackProvider = McpToolUtils.getToolCallbacksFromAsyncClients(mcpAsyncClients);
         return chatClient.prompt().user(message)
                 .tools(toolCallbackProvider)
                 .call().content();
